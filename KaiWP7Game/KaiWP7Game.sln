@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaiGame1", "KaiGame1\KaiGame1\KaiGame1.csproj", "{037B01D3-A04F-432E-ABDB-0D667CCB411A}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "KaiGame1Content", "KaiGame1\KaiGame1Content\KaiGame1Content.contentproj", "{C339B5DB-20F1-4953-998F-89FF7E5EDEC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{037B01D3-A04F-432E-ABDB-0D667CCB411A}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{037B01D3-A04F-432E-ABDB-0D667CCB411A}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{037B01D3-A04F-432E-ABDB-0D667CCB411A}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{037B01D3-A04F-432E-ABDB-0D667CCB411A}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{037B01D3-A04F-432E-ABDB-0D667CCB411A}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{037B01D3-A04F-432E-ABDB-0D667CCB411A}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{C339B5DB-20F1-4953-998F-89FF7E5EDEC5}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{C339B5DB-20F1-4953-998F-89FF7E5EDEC5}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
