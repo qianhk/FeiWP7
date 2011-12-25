@@ -13,10 +13,8 @@
 *.suo
 *.cache
 * Thumbs.db
-
 # Other useful stuff
 *.bak
-*.cache
 *.log
 *.swp
 *.user
@@ -24,13 +22,11 @@ _compareTemp
 _notes
 aspnet_client
 httpd.parse.errors
-
 # Office Temp Files
 ~$*
-
 # If you have a deploy folder
 deploy
 deploy/*
-
 # Exclude ALL DLLs?
 *.dll
+/desktop.ini

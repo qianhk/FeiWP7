@@ -108,24 +108,24 @@ namespace KaiGame1
                 this.Exit();
 
             // Move the sprite around.
-            UpdateSprite(gameTime, ref spritePosition1, ref spriteSpeed1);
-            UpdateSprite(gameTime, ref spritePosition2, ref spriteSpeed2);
+            UpdateSprite(gameTime, ref spritePosition1, ref spriteSpeed1, texture1);
+            UpdateSprite(gameTime, ref spritePosition2, ref spriteSpeed2, texture2);
             CheckForCollision();
 
             base.Update(gameTime);
         }
 
-        void UpdateSprite(GameTime gameTime, ref Vector2 spritePosition, ref Vector2 spriteSpeed)
+        void UpdateSprite(GameTime gameTime, ref Vector2 spritePosition, ref Vector2 spriteSpeed, Texture2D texture)
         {
             // Move the sprite by speed, scaled by elapsed time.
             spritePosition +=
                 spriteSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             int MaxX =
-                graphics.GraphicsDevice.Viewport.Width - texture1.Width;
+                graphics.GraphicsDevice.Viewport.Width - texture.Width;
             int MinX = 0;
             int MaxY =
-                graphics.GraphicsDevice.Viewport.Height - texture1.Height;
+                graphics.GraphicsDevice.Viewport.Height - texture.Height;
             int MinY = 0;
 
             // Check for bounce.
@@ -171,7 +171,7 @@ namespace KaiGame1
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">≤‚ ‘÷–Œƒœ‘ æProvides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -182,7 +182,7 @@ namespace KaiGame1
             spriteBatch.End();
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.Opaque);
-            spriteBatch.Draw(texture2, spritePosition2, Color.Gray);
+            spriteBatch.Draw(texture2, spritePosition2, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
