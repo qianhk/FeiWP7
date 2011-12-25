@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -171,7 +171,9 @@ namespace KaiGame1
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
-        /// <param name="gameTime">����������ʾProvides a snapshot of timing values.</param>
+        /// <param name="gameTime">测试中文显示Provides a snapshot of timing values.</param>
+        /// 仕入れや卸問屋探すならアリババ-アパレル、雑貨から業務 
+        /// 장나라 공식홈페이지 "나라짱닷컴"
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
