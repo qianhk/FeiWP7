@@ -1,4 +1,4 @@
-// ----------------------------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------------
 // Microsoft Developer & Platform Evangelism
 // 
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -41,6 +41,7 @@ namespace HelloPhone
         {
             BannerTextBlock.Text = MessageTextBox.Text;
             MessageTextBox.Text = String.Empty;
+			this.AnimateBanner.Begin();
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
