@@ -1,0 +1,60 @@
+﻿<Application 
+    x:Class="WindowsPhoneNavigation.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:nav="clr-namespace:System.Windows.Navigation;assembly=Microsoft.Phone">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <system:String x:Key="AppName">CONTROLS &amp; NAVIGATION</system:String>
+        <!-- Hyperlink style -->
+        <Style x:Key="PhoneHyperlinkStyle" TargetType="HyperlinkButton">
+            <Setter Property="Margin" Value="30,10,0,10"/>
+            <Setter Property="Foreground" Value="{StaticResource PhoneAccentBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <nav:UriMapper x:Key="UriMapper">
+            <nav:UriMapper.UriMappings>
+                <nav:UriMapping Uri="/Music/{song}" MappedUri="/Views/Music/Default.xaml?Song=Assets/{song}"/>
+                <nav:UriMapping Uri="/Video/{video}" MappedUri="/Views/Video/Default.xaml?Video=Assets/{video}"/>
+                <nav:UriMapping Uri="/WebBrowser/{defaultURL}" MappedUri="/Views/WebBrowser/Default.xaml?DefaultURL={defaultURL}"/>
+                <nav:UriMapping Uri="/Pictures" MappedUri="/Views/Pictures/Default.xaml"/>
+                <nav:UriMapping Uri="/PictureView/{picture}" MappedUri="/Views/Pictures/PictureView.xaml?Picture={picture}"/>
+                <nav:UriMapping Uri="/About" MappedUri="/Views/About/Default.xaml"/>
+            </nav:UriMapper.UriMappings>
+        </nav:UriMapper>
+        <system:String x:Key="ImagesLocation">Assets/Images/</system:String>
+        <shell:ApplicationBar x:Key="MainAppBar" IsVisible="True">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="About" Click="ApplicationBarAbout_Click" />
+            </shell:ApplicationBar.MenuItems>
+
+            <shell:ApplicationBar.Buttons>
+                <shell:ApplicationBarIconButton Text="Web" IconUri="ie_icon.png" Click="ApplicationBarIconWebBrowserButton_Click" />
+                <shell:ApplicationBarIconButton Text="Images" IconUri="pictures_Icon.png"  Click="ApplicationBarIconPictures_Click" />
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="GlobalAppBar" IsVisible="True">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="About" Click="ApplicationBarAbout_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="PictureAppBar" IsVisible="False">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="appBarMenuItemShowPicture" Text="Show Picture"/>
+                <shell:ApplicationBarMenuItem Text="About" Click="ApplicationBarAbout_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
