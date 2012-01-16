@@ -98,7 +98,7 @@ namespace XPathQuery
     {
       try
       {
-        XmlNodeList nodes = document.DocumentElement.SelectNodes(textBoxQuery.Text);
+        XmlNodeList nodes = document.SelectNodes(textBoxQuery.Text);
         Update(nodes);
       }
       catch (Exception err)
