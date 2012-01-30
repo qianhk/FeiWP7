@@ -13,9 +13,9 @@ using Microsoft.Phone.Controls;
 
 namespace TTPlayer
 {
-	public partial class ListAllSongPage : PhoneApplicationPage
+	public partial class ListSongPage : PhoneApplicationPage
 	{
-		public ListAllSongPage()
+		public ListSongPage()
 		{
 			InitializeComponent();
 		}

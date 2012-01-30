@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Xna.Framework.Media;
 
 namespace TTPlayer
 {
@@ -23,24 +24,25 @@ namespace TTPlayer
 
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
-			List<ListMain> listData = new List<ListMain>
+			App app = Application.Current as App;
+			MediaLibrary library = app.library;
+
+			List<ListNormal> listData = new List<ListNormal>
 			{
-				new ListMain("ALl Songs", 100),
-				new ListMain("Artist", 40),
-				new ListMain("Album", 20),
-				new ListMain("xxxx", 1006),
-				new ListMain("xxx", 6100)
+			    new ListAll("ALl Songs", library.Songs.Count),
+			    new ListArtist("Artist", library.Artists.Count),
+			    new ListAlbum("Album", library.Albums.Count),
 			};
 			lstMain.ItemsSource = listData;
 		}
 
 		private void lstMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			ListMain selectList = lstMain.SelectedItem as ListMain;
+			ListNormal selectList = lstMain.SelectedItem as ListNormal;
 			System.Diagnostics.Debug.WriteLine(selectList);
 			if (lstMain.SelectedIndex == 0)
 			{
-				NavigationService.Navigate(new Uri("/ListAllSongPage.xaml", UriKind.RelativeOrAbsolute));
+				NavigationService.Navigate(new Uri("/ListSongPage.xaml", UriKind.RelativeOrAbsolute));
 			}
 		}
 

@@ -14,6 +14,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Threading;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 
 namespace TTPlayer
 {
@@ -24,6 +25,7 @@ namespace TTPlayer
 		/// </summary>
 		/// <returns>The root frame of the Phone Application.</returns>
 		public PhoneApplicationFrame RootFrame { get; private set; }
+		public MediaLibrary library = new MediaLibrary();
 
 		/// <summary>
 		/// Constructor for the Application object.
@@ -73,6 +75,7 @@ namespace TTPlayer
 				}
 			};
 			dt.Start();
+
 		}
 
 		// Code to execute when the application is launching (eg, from Start)

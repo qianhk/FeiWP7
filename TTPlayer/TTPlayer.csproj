@@ -64,8 +64,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListAllSongPage.xaml.cs">
-      <DependentUpon>ListAllSongPage.xaml</DependentUpon>
+    <Compile Include="ListSongPage.xaml.cs">
+      <DependentUpon>ListSongPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListBasePage.xaml.cs">
       <DependentUpon>ListBasePage.xaml</DependentUpon>
@@ -85,7 +85,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="ListAllSongPage.xaml">
+    <Page Include="ListSongPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

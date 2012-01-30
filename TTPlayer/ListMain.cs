@@ -11,12 +11,12 @@ using System.Windows.Shapes;
 
 namespace TTPlayer
 {
-	public class ListMain : Object
+	public class ListNormal : Object
 	{
-		private string _title;
-		private int _amount;
+		protected string _title;
+		protected int _amount;
 
-		public ListMain(string title, int amount)
+		public ListNormal(string title, int amount)
 		{
 			_title = title;
 			_amount = amount;
@@ -44,7 +44,55 @@ namespace TTPlayer
 
 		public override string ToString()
 		{
-			return string.Format("ListMain title={0} amount={1}", _title, _amount);
+			return string.Format("ListNormal title={0} amount={1}", _title, _amount);
+		}
+	}
+
+	public class ListAll : ListNormal
+	{
+		public ListAll(string title, int amount) : base(title, amount)
+		{
+		}
+	}
+
+	public class ListArtist : ListNormal
+	{
+		public ListArtist(string title, int amount) : base(title, amount)
+		{
+		}
+
+		public string AmountString
+		{
+			get
+			{
+				return string.Format("共 {0} 个歌手", _amount);
+			}
+		}
+
+		public override string ToString()
+		{
+			return string.Format("ListArtist title={0} amount={1}", _title, _amount);
+		}
+	}
+
+	public class ListAlbum : ListNormal
+	{
+		public ListAlbum(string title, int amount)
+			: base(title, amount)
+		{
+		}
+
+		public string AmountString
+		{
+			get
+			{
+				return string.Format("共 {0} 个专辑", _amount);
+			}
+		}
+
+		public override string ToString()
+		{
+			return string.Format("ListAlbum title={0} amount={1}", _title, _amount);
 		}
 	}
 }
