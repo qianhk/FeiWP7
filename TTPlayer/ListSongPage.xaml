@@ -29,7 +29,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
         <TextBlock x:Name="PageTitle" Text="page name" Margin="21,21,0,704" Style="{StaticResource PhoneTextTitle1Style}" FontSize="32" TextAlignment="Center" Grid.RowSpan="2" />
-        <Button Content="Go" Grid.RowSpan="2" Height="65" HorizontalAlignment="Left" Margin="12,10,0,0" Name="btnBack" VerticalAlignment="Top" Width="110" Click="btnBack_Click" />
+        <Button Content="Back" Grid.RowSpan="2" Height="65" HorizontalAlignment="Left" Margin="12,10,0,0" Name="btnBack" VerticalAlignment="Top" Width="110" Click="btnBack_Click" />
         <ListBox Grid.Row="1" Height="649" HorizontalAlignment="Left" Margin="8,40,0,0" Name="lstAllSong" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" SelectionChanged="lstAllSong_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
