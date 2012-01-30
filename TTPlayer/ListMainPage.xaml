@@ -26,7 +26,7 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Margin="12,17,0,50"></StackPanel>
         <TextBlock Height="55" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="天天动听" VerticalAlignment="Top" Width="456" FontSize="32" TextAlignment="Center" />
-        <Button Content="Go" Height="79" HorizontalAlignment="Left" Margin="369,-3,0,0" Name="button1" VerticalAlignment="Top" Width="99" Grid.RowSpan="2" />
+        <Button Content="Go" Height="79" HorizontalAlignment="Left" Margin="369,-3,0,0" Name="btnToPlayView" VerticalAlignment="Top" Width="99" Grid.RowSpan="2" Click="btnToPlayView_Click" />
         <ListBox Grid.Row="1" Height="678" HorizontalAlignment="Left" Margin="8,11,0,0" Name="lstMain" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" SelectionChanged="lstMain_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>

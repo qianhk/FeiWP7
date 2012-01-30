@@ -41,5 +41,10 @@ namespace TTPlayer
 		{
 			NavigationService.GoBack();
 		}
+
+		private void btnToPlayView_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new Uri("/PlayMain.xaml", UriKind.Relative));
+		}
 	}
 }

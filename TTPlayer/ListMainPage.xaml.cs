@@ -43,5 +43,10 @@ namespace TTPlayer
 				NavigationService.Navigate(new Uri("/ListAllSongPage.xaml", UriKind.RelativeOrAbsolute));
 			}
 		}
+
+		private void btnToPlayView_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new Uri("/PlayMain.xaml", UriKind.Relative));
+		}
 	}
 }
