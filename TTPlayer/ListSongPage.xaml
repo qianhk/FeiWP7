@@ -28,13 +28,13 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
-        <TextBlock x:Name="PageTitle" Text="page name" Margin="21,21,0,704" Style="{StaticResource PhoneTextTitle1Style}" FontSize="32" TextAlignment="Center" Grid.RowSpan="2" />
+        <TextBlock x:Name="tbTitle" Text="Song Page" Margin="21,21,0,704" Style="{StaticResource PhoneTextTitle1Style}" FontSize="32" TextAlignment="Center" Grid.RowSpan="2" />
         <Button Content="Back" Grid.RowSpan="2" Height="65" HorizontalAlignment="Left" Margin="12,10,0,0" Name="btnBack" VerticalAlignment="Top" Width="110" Click="btnBack_Click" />
-        <ListBox Grid.Row="1" Height="649" HorizontalAlignment="Left" Margin="8,40,0,0" Name="lstAllSong" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" SelectionChanged="lstAllSong_SelectionChanged">
+        <ListBox Grid.Row="1" Height="649" HorizontalAlignment="Left" Margin="8,40,0,0" Name="lstSongs" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" SelectionChanged="lstSongs_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                        <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        <TextBlock FontSize="32" Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                         <TextBlock Text="{Binding ArtistAlbum}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     </StackPanel>
                 </DataTemplate>

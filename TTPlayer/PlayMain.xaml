@@ -13,8 +13,7 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
-    Style="{StaticResource TransitionPageStyleTurnstile}"
-    >
+    Style="{StaticResource TransitionPageStyleTurnstile}" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -28,8 +27,8 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="159,99,0,0" Name="textBlock1" Text="播放界面" VerticalAlignment="Top" />
-            <controls:Pivot Title="Pivot Title" Margin="0,187,0,0" Name="privotPlay">
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="204,29,0,0" Name="textBlock1" Text="播放界面" VerticalAlignment="Top" />
+            <controls:Pivot Margin="0,187,0,0" Name="privotPlay">
                 <!--Pivot item one-->
                 <controls:PivotItem Header="first" Name="pivotItemMain">
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="120,20,0,0" Name="textBlockxxxx" Text="MainView" VerticalAlignment="Top" />
@@ -44,6 +43,14 @@
                 </controls:PivotItem>
             </controls:Pivot>
             <Button Content="Back" Height="65" HorizontalAlignment="Left" Margin="11,11,0,0" Name="btnBack" VerticalAlignment="Top" Width="89" FontSize="20" Click="btnBack_Click" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="40,0,0,611" Name="tbArtist" Text="TextBlock" VerticalAlignment="Bottom" Width="330" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="41,118,0,0" Name="tbTitle" Text="TextBlock" VerticalAlignment="Top" Width="329" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="41,151,0,0" Name="tbAlbum" Text="TextBlock" VerticalAlignment="Top" Width="329" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="45,185,0,0" Name="tbDuration" Text="TextBlock" VerticalAlignment="Top" Width="67" />
+            <Button Content="Play" Height="63" HorizontalAlignment="Left" Margin="323,85,0,0" Name="btnPlayPause" VerticalAlignment="Top" Width="101" FontSize="16" Click="btnPlayPause_Click" />
+            <Button Content="Pre" FontSize="16" Height="55" HorizontalAlignment="Left" Margin="220,171,0,0" Name="btnPre" VerticalAlignment="Top" Width="85" Click="btnPre_Click" />
+            <Button Content="Next" FontSize="16" Height="55" HorizontalAlignment="Right" Margin="0,171,65,0" Name="btnNext" VerticalAlignment="Top" Width="85" Click="btnNext_Click" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="142,185,0,0" Name="tbCurTime" Text="TextBlock" VerticalAlignment="Top" Width="63" />
         </Grid>
     </Grid>
  

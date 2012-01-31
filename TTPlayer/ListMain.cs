@@ -13,28 +13,28 @@ namespace TTPlayer
 {
 	public class ListNormal : Object
 	{
-		protected string _title;
+		protected string _name;
 		protected int _amount;
 
 		public ListNormal(string title, int amount)
 		{
-			_title = title;
+			_name = title;
 			_amount = amount;
 		}
 
-		public string Title
+		public string Name
 		{
 			get
 			{
-				return _title;
+				return _name;
 			}
 			set
 			{
-				_title = value;
+				_name = value;
 			}
 		}
 
-		public string AmountString
+		virtual public string AmountString
 		{
 			get
 			{
@@ -44,24 +44,24 @@ namespace TTPlayer
 
 		public override string ToString()
 		{
-			return string.Format("ListNormal title={0} amount={1}", _title, _amount);
+			return string.Format("ListNormal title={0} amount={1}", _name, _amount);
 		}
 	}
 
-	public class ListAll : ListNormal
+	public class ListAllAll : ListNormal
 	{
-		public ListAll(string title, int amount) : base(title, amount)
+		public ListAllAll(string title, int amount) : base(title, amount)
 		{
 		}
 	}
 
-	public class ListArtist : ListNormal
+	public class ListAllArtist : ListNormal
 	{
-		public ListArtist(string title, int amount) : base(title, amount)
+		public ListAllArtist(string title, int amount) : base(title, amount)
 		{
 		}
 
-		public string AmountString
+		override public string AmountString
 		{
 			get
 			{
@@ -71,28 +71,54 @@ namespace TTPlayer
 
 		public override string ToString()
 		{
-			return string.Format("ListArtist title={0} amount={1}", _title, _amount);
+			return string.Format("ListAllArtist title={0} amount={1}", _name, _amount);
 		}
 	}
 
-	public class ListAlbum : ListNormal
+	public class ListAllAlbum : ListNormal
 	{
-		public ListAlbum(string title, int amount)
+		public ListAllAlbum(string title, int amount)
 			: base(title, amount)
 		{
 		}
 
-		public string AmountString
+		override public string AmountString
 		{
 			get
 			{
-				return string.Format("共 {0} 个专辑", _amount);
+				return string.Format("共 {0} 张专辑", _amount);
 			}
 		}
 
 		public override string ToString()
 		{
-			return string.Format("ListAlbum title={0} amount={1}", _title, _amount);
+			return string.Format("ListAllAlbum title={0} amount={1}", _name, _amount);
+		}
+	}
+
+	public class ListArtist : ListNormal
+	{
+		public ListArtist(string artist, int amount)
+			: base(artist, amount)
+		{
+		}
+
+		public override string ToString()
+		{
+			return string.Format("ListArtist artist={0} amount={1}", _name, _amount);
+		}
+	}
+
+	public class ListAlbum : ListNormal
+	{
+		public ListAlbum(string album, int amount)
+			: base(album, amount)
+		{
+		}
+
+		public override string ToString()
+		{
+			return string.Format("ListAlbum album={0} amount={1}", _name, _amount);
 		}
 	}
 }

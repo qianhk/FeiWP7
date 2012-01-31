@@ -64,6 +64,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ErrorPage.xaml.cs">
+      <DependentUpon>ErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListAlbumPage.xaml.cs">
+      <DependentUpon>ListAlbumPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListArtistPage.xaml.cs">
+      <DependentUpon>ListArtistPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListSongPage.xaml.cs">
       <DependentUpon>ListSongPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +94,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="ErrorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListAlbumPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListArtistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListSongPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

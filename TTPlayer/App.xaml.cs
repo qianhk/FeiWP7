@@ -15,6 +15,7 @@ using Microsoft.Phone.Shell;
 using System.Windows.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
+using System.Threading;
 
 namespace TTPlayer
 {
@@ -26,7 +27,7 @@ namespace TTPlayer
 		/// <returns>The root frame of the Phone Application.</returns>
 		public PhoneApplicationFrame RootFrame { get; private set; }
 		public MediaLibrary library = new MediaLibrary();
-
+		public Song curPlaySong = null;
 		/// <summary>
 		/// Constructor for the Application object.
 		/// </summary>
@@ -60,6 +61,7 @@ namespace TTPlayer
 				// and consume battery power when the user is not using the phone.
 				PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
 			}
+
 			DispatcherTimer dt = new DispatcherTimer();
 			dt.Interval = TimeSpan.FromMilliseconds(33);
 			dt.Tick += delegate
@@ -120,6 +122,11 @@ namespace TTPlayer
 				// An unhandled exception has occurred; break into the debugger
 				System.Diagnostics.Debugger.Break();
 			}
+
+			e.Handled = true;
+			ErrorPage.Exception = e.ExceptionObject;
+			(RootVisual as Microsoft.Phone.Controls.PhoneApplicationFrame).Source =
+				new Uri("/ErrorPage.xaml", UriKind.Relative);
 		}
 
 		#region Phone application initialization

@@ -29,20 +29,26 @@ namespace TTPlayer
 
 			List<ListNormal> listData = new List<ListNormal>
 			{
-			    new ListAll("ALl Songs", library.Songs.Count),
-			    new ListArtist("Artist", library.Artists.Count),
-			    new ListAlbum("Album", library.Albums.Count),
+			    new ListAllAll("ALl Songs", library.Songs.Count),
+			    new ListAllArtist("Artist", library.Artists.Count),
+			    new ListAllAlbum("Album", library.Albums.Count),
 			};
 			lstMain.ItemsSource = listData;
 		}
 
 		private void lstMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			if (lstMain.SelectedIndex < 0)
+			{
+				return;
+			}
+	
 			ListNormal selectList = lstMain.SelectedItem as ListNormal;
 			System.Diagnostics.Debug.WriteLine(selectList);
-			if (lstMain.SelectedIndex == 0)
+			string[] url = { "/ListSongPage.xaml", "/ListArtistPage.xaml", "/ListAlbumPage.xaml" };
+			if (lstMain.SelectedIndex < url.Count())
 			{
-				NavigationService.Navigate(new Uri("/ListSongPage.xaml", UriKind.RelativeOrAbsolute));
+				NavigationService.Navigate(new Uri(url[lstMain.SelectedIndex], UriKind.RelativeOrAbsolute));
 			}
 		}
 
