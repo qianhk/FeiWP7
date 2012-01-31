@@ -83,7 +83,8 @@ namespace TTPlayer
 
 			//ListSong song = lstSongs.SelectedItem as ListSong;
 			App app = Application.Current as App;
-			app.curPlaySong = _songs[lstSongs.SelectedIndex];
+			app.curPlaySongCollection = _songs;
+			app.curPlaySongIndex = lstSongs.SelectedIndex;
 			NavigationService.Navigate(new Uri("/PlayMain.xaml?action=play", UriKind.Relative));
 		}
 

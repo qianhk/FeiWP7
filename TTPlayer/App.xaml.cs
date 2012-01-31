@@ -27,7 +27,21 @@ namespace TTPlayer
 		/// <returns>The root frame of the Phone Application.</returns>
 		public PhoneApplicationFrame RootFrame { get; private set; }
 		public MediaLibrary library = new MediaLibrary();
-		public Song curPlaySong = null;
+		public SongCollection curPlaySongCollection = null;
+		public int curPlaySongIndex = -1;
+
+		public Song CurPlaySong
+		{
+			get
+			{
+				Song song = null;
+				if (curPlaySongCollection != null && curPlaySongIndex >= 0 && curPlaySongIndex < curPlaySongCollection.Count)
+				{
+					song = curPlaySongCollection[curPlaySongIndex];
+				}
+				return song;
+			}
+		}
 		/// <summary>
 		/// Constructor for the Application object.
 		/// </summary>

@@ -21,6 +21,7 @@ namespace TTPlayer
 	{
 		private App _app = Application.Current as App;
 		private DispatcherTimer _timer = new DispatcherTimer();
+		int _timejs = 0;
 
 		public PlayMain()
 		{
@@ -31,13 +32,15 @@ namespace TTPlayer
 			//privotPlay.SelectedIndex = 1;
 
 			MediaPlayer.MediaStateChanged += new EventHandler<EventArgs>(MediaPlayer_MediaStateChanged);
+			MediaPlayer.ActiveSongChanged += MediaPlayer_ActiveMediaChanged;
 
-			_timer.Interval = TimeSpan.FromMilliseconds(500);
+			_timer.Interval = TimeSpan.FromMilliseconds(50);
 			_timer.Tick += TimeCallBack;
 		}
 
 		private void SetControlState()
 		{
+			System.Diagnostics.Debug.WriteLine("SetControlState PlayMain PlayState={0}", MediaPlayer.State.ToString());
 			switch (MediaPlayer.State)
 			{
 				case MediaState.Playing:
@@ -49,7 +52,6 @@ namespace TTPlayer
 					break;
 				case MediaState.Paused:
 				case MediaState.Stopped:
-					System.Diagnostics.Debug.WriteLine("SetControlState PlayMain PlayState={0}", MediaPlayer.State.ToString());
 					btnPlayPause.Content = "Play";
 					if (_timer.IsEnabled)
 					{
@@ -57,11 +59,25 @@ namespace TTPlayer
 					}
 					break;
 			}
+			Song song = _app.CurPlaySong;
+			if (song != null)
+			{
+				tbArtist.Text = song.Artist.Name;
+				tbTitle.Text = song.Name;
+				tbAlbum.Text = song.Album.Name;
+				tbDuration.Text = song.Duration.ToString(@"mm\:ss");
+			}
 		}
 
 		void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
 		{
 			SetControlState();
+		}
+
+		void MediaPlayer_ActiveMediaChanged(object sender, EventArgs e)
+		{
+			//_app.curPlaySongIndex = MediaPlayer.
+			System.Diagnostics.Debug.WriteLine(e);
 		}
 
 		private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -72,7 +88,8 @@ namespace TTPlayer
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			System.Diagnostics.Debug.WriteLine("Page_Loaded PlayMain");
-			Song song = _app.curPlaySong;
+
+			Song song = _app.CurPlaySong;
 			if (song != null)
 			{
 				tbArtist.Text = song.Artist.Name;
@@ -82,7 +99,7 @@ namespace TTPlayer
 
 				if (NavigationContext.QueryString.Count > 0)
 				{
-					MediaPlayer.Play(song);
+					MediaPlayer.Play(_app.curPlaySongCollection, _app.curPlaySongIndex);
 				}
 			}
 		}
@@ -102,12 +119,28 @@ namespace TTPlayer
 		private void TimeCallBack(object sender, EventArgs e)
 		{
 			//System.Diagnostics.Debug.WriteLine("PlayMain TimeCallBack ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
-			tbCurTime.Text = MediaPlayer.PlayPosition.ToString(@"mm\:ss");
+			++_timejs;
+			if (_timejs > 10)
+			{
+				tbCurTime.Text = MediaPlayer.PlayPosition.ToString(@"mm\:ss");
+				_timejs = 0;
+			}
 		}
 
 		private void btnPlayPause_Click(object sender, RoutedEventArgs e)
 		{
 			//MessageBox.Show("xxxxx", "caption", MessageBoxButton.OKCancel);
+			if (_app.CurPlaySong != null)
+			{
+				if (MediaPlayer.State == MediaState.Playing)
+				{
+					MediaPlayer.Pause();
+				}
+				else
+				{
+					MediaPlayer.Resume();
+				}
+			}
 		}
 
 		private void btnPre_Click(object sender, RoutedEventArgs e)
