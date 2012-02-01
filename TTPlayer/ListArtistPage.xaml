@@ -16,18 +16,18 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
-            <RowDefinition Height="693*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28"></StackPanel>
-
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Orientation="Horizontal">
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
-        <TextBlock x:Name="PageTitle" Text="Artist Page" Margin="21,21,0,704" Style="{StaticResource PhoneTextTitle1Style}" FontSize="32" TextAlignment="Center" Grid.RowSpan="2" />
-        <Button Content="Back" Grid.RowSpan="2" Height="65" HorizontalAlignment="Left" Margin="12,10,0,0" Name="btnBack" VerticalAlignment="Top" Width="110" Click="btnBack_Click" />
-        <ListBox Grid.Row="1" Height="649" HorizontalAlignment="Left" Margin="8,40,0,0" Name="lstAllArtist" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" SelectionChanged="lstAllArtist_SelectionChanged">
+            <Button Content="Back" Height="70" HorizontalAlignment="Center" Name="btnBack" VerticalAlignment="Center" Width="110" Click="btnBack_Click" />
+            <TextBlock x:Name="PageTitle" Text="Artist Page" Style="{StaticResource PhoneTextTitle1Style}" FontSize="32" TextAlignment="Center" Width="260" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,10,0,0" />
+            <Button Content="Go" Height="70" HorizontalAlignment="Center" Margin="0" Name="btnToPlayView" VerticalAlignment="Center" Width="110" Click="btnToPlayView_Click" />
+        </StackPanel>
+        <ListBox Grid.Row="1" Height="698" HorizontalAlignment="Left" Name="lstAllArtist" VerticalAlignment="Top" Width="480" ItemsSource="{Binding}" SelectionChanged="lstAllArtist_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,17" Width="432" Height="78">
@@ -37,7 +37,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Go" Height="72" HorizontalAlignment="Left" Margin="347,0,0,0" Name="btnToPlayView" VerticalAlignment="Top" Width="99" Grid.RowSpan="2" Click="btnToPlayView_Click" />
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->
