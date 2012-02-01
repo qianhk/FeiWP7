@@ -24,9 +24,16 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Orientation="Horizontal">
-        <TextBlock Height="70" HorizontalAlignment="Center" Name="textBlock1" Text="天天动听" VerticalAlignment="Center" FontSize="32" TextAlignment="Center" Width="280" Padding="0,10,0,0" Margin="100,0,0,0" />
-        <Button Content="Go" Height="70" HorizontalAlignment="Left" Name="btnToPlayView" VerticalAlignment="Top" Width="99" Click="btnToPlayView_Click" Padding="0" />
+        <StackPanel x:Name="TitlePanel" Orientation="Horizontal" Grid.Row="0" >
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Height="70" HorizontalAlignment="Center" Name="textBlock1" Text="天天动听" VerticalAlignment="Center" FontSize="32" TextAlignment="Center" Padding="0,10,0,0" Grid.Column="1" Width="280" />
+                <Button Content="Go" Height="70" HorizontalAlignment="Left" Name="btnToPlayView" VerticalAlignment="Top" Width="100" Click="btnToPlayView_Click" Padding="0" Grid.Column="2" />
+            </Grid>
         </StackPanel>
         <ListBox Grid.Row="1" HorizontalAlignment="Left" Name="lstMain" VerticalAlignment="Top" ItemsSource="{Binding}" SelectionChanged="lstMain_SelectionChanged" Width="480" Height="698">
             <ListBox.ItemTemplate>

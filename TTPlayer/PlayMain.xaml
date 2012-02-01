@@ -16,43 +16,35 @@
     Style="{StaticResource TransitionPageStyleTurnstile}" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Canvas>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28"></StackPanel>
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Center" Name="textBlock1" Text="播放界面" VerticalAlignment="Center" Canvas.Left="150" Canvas.Top="10" />
+        <Button Canvas.ZIndex="2" Content="Back" Height="68" HorizontalAlignment="Left" Name="btnBack" VerticalAlignment="Top" Width="93" Click="btnBack_Click" FontSize="16" />
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbArtist" Text="TextBlock" VerticalAlignment="Bottom" Width="330" Canvas.Left="20" Canvas.Top="65" />
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbTitle" Text="TextBlock" VerticalAlignment="Top" Width="329" Canvas.Left="22" Canvas.Top="100" />
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbAlbum" Text="TextBlock" VerticalAlignment="Top" Width="329" Canvas.Top="134" Canvas.Left="21" />
+        <Button Canvas.ZIndex="2" Content="Play" Height="64" HorizontalAlignment="Left" Name="btnPlayPause" VerticalAlignment="Top" Width="100" FontSize="16" Click="btnPlayPause_Click" Canvas.Left="345" Canvas.Top="50" />
+        <Button Canvas.ZIndex="2" Content="Pre" FontSize="16" Height="64" HorizontalAlignment="Left" Name="btnPre" VerticalAlignment="Top" Width="100" Click="btnPre_Click" Canvas.Left="345" Canvas.Top="110" />
+        <Button Canvas.ZIndex="2" Content="Next" FontSize="16" Height="64" HorizontalAlignment="Right" Name="btnNext" VerticalAlignment="Top" Width="100" Click="btnNext_Click" Canvas.Left="345" Canvas.Top="172" HorizontalContentAlignment="Center" />
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbDuration" Text="TextBlock" VerticalAlignment="Top" Width="141" Canvas.Top="170" Canvas.Left="21" />
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbCurTime" Text="TextBlock" VerticalAlignment="Top" Width="141" Canvas.Top="205" Canvas.Left="21" />
+            
+        <controls:Pivot Canvas.ZIndex="1" Name="privotPlay" Height="526" Width="480" Canvas.Left="0" Canvas.Top="230" Margin="0,-60,0,0" >
+            <!--Pivot item one-->
+            <controls:PivotItem Header="first" Name="pivotItemMain" Width="480">
+                <Canvas Width="480" Height="431">
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="textBlockxxxx" Text="MainView" VerticalAlignment="Top" Margin="0" Canvas.Left="0" Canvas.Top="0" />
+                </Canvas>
+            </controls:PivotItem>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="204,29,0,0" Name="textBlock1" Text="播放界面" VerticalAlignment="Top" />
-            <controls:Pivot Margin="0,187,0,0" Name="privotPlay">
-                <!--Pivot item one-->
-                <controls:PivotItem Header="first" Name="pivotItemMain">
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="120,20,0,0" Name="textBlockxxxx" Text="MainView" VerticalAlignment="Top" />
-
-                    
-                </controls:PivotItem>
-
-                <!--Pivot item two-->
-                <controls:PivotItem Header="second" Name="pivotItemLyric">
-                    <!--Triple line list no text wrapping-->
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="120,50,0,0" Name="textBlockxxxxx" Text="LyricView" VerticalAlignment="Top" />
-                </controls:PivotItem>
-            </controls:Pivot>
-            <Button Content="Back" Height="65" HorizontalAlignment="Left" Margin="11,11,0,0" Name="btnBack" VerticalAlignment="Top" Width="89" FontSize="20" Click="btnBack_Click" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="40,0,0,611" Name="tbArtist" Text="TextBlock" VerticalAlignment="Bottom" Width="330" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="41,118,0,0" Name="tbTitle" Text="TextBlock" VerticalAlignment="Top" Width="329" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="41,151,0,0" Name="tbAlbum" Text="TextBlock" VerticalAlignment="Top" Width="329" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="45,185,0,0" Name="tbDuration" Text="TextBlock" VerticalAlignment="Top" Width="67" />
-            <Button Content="Play" Height="63" HorizontalAlignment="Left" Margin="323,85,0,0" Name="btnPlayPause" VerticalAlignment="Top" Width="101" FontSize="16" Click="btnPlayPause_Click" />
-            <Button Content="Pre" FontSize="16" Height="55" HorizontalAlignment="Left" Margin="220,171,0,0" Name="btnPre" VerticalAlignment="Top" Width="85" Click="btnPre_Click" />
-            <Button Content="Next" FontSize="16" Height="55" HorizontalAlignment="Right" Margin="0,171,65,0" Name="btnNext" VerticalAlignment="Top" Width="85" Click="btnNext_Click" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="142,185,0,0" Name="tbCurTime" Text="TextBlock" VerticalAlignment="Top" Width="63" />
-        </Grid>
-    </Grid>
+            <!--Pivot item two-->
+            <controls:PivotItem Header="second" Name="pivotItemLyric">
+                <Canvas Width="480" Height="431">
+                    <TextBlock Height="30" HorizontalAlignment="Center" Name="textBlockxxxxx" Text="LyricView" VerticalAlignment="Center" Margin="0" Canvas.Left="0" />
+                </Canvas>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Canvas>
  
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
