@@ -21,7 +21,8 @@ namespace TTPlayer
 	{
 		private App _app = Application.Current as App;
 		private DispatcherTimer _timer = new DispatcherTimer();
-		int _timejs = 0;
+		private int _timejs = 0;
+		private bool _pageloaded = false;
 
 		public PlayMain()
 		{
@@ -40,7 +41,7 @@ namespace TTPlayer
 
 		private void SetControlState()
 		{
-			System.Diagnostics.Debug.WriteLine("SetControlState PlayMain PlayState={0}", MediaPlayer.State.ToString());
+			System.Diagnostics.Debug.WriteLine("SetControlState PlayMain PlayState={0} index={1}", MediaPlayer.State.ToString(), _app.curPlaySongIndex);
 			switch (MediaPlayer.State)
 			{
 				case MediaState.Playing:
@@ -76,8 +77,9 @@ namespace TTPlayer
 
 		void MediaPlayer_ActiveMediaChanged(object sender, EventArgs e)
 		{
-			//_app.curPlaySongIndex = MediaPlayer.
-			System.Diagnostics.Debug.WriteLine(e);
+			System.Diagnostics.Debug.WriteLine("MediaPlayer_ActiveMediaChanged index={0}", MediaPlayer.Queue.ActiveSongIndex);
+			_app.curPlaySongIndex = MediaPlayer.Queue.ActiveSongIndex;
+			SetControlState();
 		}
 
 		private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -88,7 +90,7 @@ namespace TTPlayer
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			System.Diagnostics.Debug.WriteLine("Page_Loaded PlayMain");
-
+			_pageloaded = true;
 			Song song = _app.CurPlaySong;
 			if (song != null)
 			{
@@ -112,6 +114,10 @@ namespace TTPlayer
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 			//System.Diagnostics.Debug.WriteLine("OnNavigatedTo PlayMain ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+			if (_pageloaded)
+			{
+				_app.curPlaySongIndex = MediaPlayer.Queue.ActiveSongIndex;
+			}
 			SetControlState();
 			tbCurTime.Text = MediaPlayer.PlayPosition.ToString(@"mm\:ss");
 		}
@@ -145,12 +151,12 @@ namespace TTPlayer
 
 		private void btnPre_Click(object sender, RoutedEventArgs e)
 		{
-
+			MediaPlayer.MovePrevious();
 		}
 
 		private void btnNext_Click(object sender, RoutedEventArgs e)
 		{
-
+			MediaPlayer.MoveNext();
 		}
 	}
 }
