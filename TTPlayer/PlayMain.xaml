@@ -20,7 +20,7 @@
 
         <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Center" Name="textBlock1" Text="播放界面" VerticalAlignment="Center" Canvas.Left="150" Canvas.Top="10" />
         <Button Canvas.ZIndex="2" Content="Back" Height="68" HorizontalAlignment="Left" Name="btnBack" VerticalAlignment="Top" Width="93" Click="btnBack_Click" FontSize="16" />
-        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbArtist" Text="TextBlock" VerticalAlignment="Bottom" Width="330" Canvas.Left="20" Canvas.Top="65" />
+        <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbArtist" Text="TextBlock" VerticalAlignment="Bottom" Width="330" Canvas.Left="20" Canvas.Top="66" />
         <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbTitle" Text="TextBlock" VerticalAlignment="Top" Width="329" Canvas.Left="22" Canvas.Top="100" />
         <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbAlbum" Text="TextBlock" VerticalAlignment="Top" Width="329" Canvas.Top="134" Canvas.Left="21" />
         <Button Canvas.ZIndex="2" Content="Play" Height="64" HorizontalAlignment="Left" Name="btnPlayPause" VerticalAlignment="Top" Width="100" FontSize="16" Click="btnPlayPause_Click" Canvas.Left="345" Canvas.Top="50" />
@@ -29,7 +29,7 @@
         <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbDuration" Text="TextBlock" VerticalAlignment="Top" Width="141" Canvas.Top="170" Canvas.Left="21" />
         <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Left" Name="tbCurTime" Text="TextBlock" VerticalAlignment="Top" Width="141" Canvas.Top="205" Canvas.Left="21" />
             
-        <controls:Pivot Canvas.ZIndex="1" Name="privotPlay" Height="526" Width="480" Canvas.Left="0" Canvas.Top="230" Margin="0,-60,0,0" >
+        <controls:Pivot Canvas.ZIndex="1" Name="privotPlay" Height="526" Width="480" Canvas.Left="0" Canvas.Top="235" Margin="0,-60,0,0" >
             <!--Pivot item one-->
             <controls:PivotItem Header="first" Name="pivotItemMain" Width="480">
                 <Canvas Width="480" Height="431">
