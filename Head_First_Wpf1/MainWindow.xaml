@@ -13,7 +13,7 @@
         </Style>
         
     </Window.Resources>
-    <WrapPanel >
+    <WrapPanel  >
         <Rectangle x:Name="rectangle" Width="200" Height="120">
             <Rectangle.Fill>
                 <LinearGradientBrush>
@@ -56,5 +56,21 @@
                 </x:Array>
             </ListBox.ItemsSource>
         </ListBox>
+        <TextBox Width="300" x:Name="textBoxName" BorderBrush="Black"></TextBox>
+        <Button Content="Add Age" Click="Button_Click" />
+        <TextBox x:Name="tbStuId" Width="100" Height="30"/>
+        <ListBox x:Name="lbStudents" Height="100" Width="auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Id}" Width="30" />
+                        <TextBlock Text="{Binding Path=Name}" Width="60" />
+                        <TextBlock Text="{Binding Path=Age}" Width="30" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Add Stu" Click="Button_Click_1"/>
+        <Button Content="Modify Stu" Click="Button_Click_2"/>
     </WrapPanel>
 </Window>
