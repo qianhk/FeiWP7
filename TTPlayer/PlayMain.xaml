@@ -13,9 +13,8 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
-    Style="{StaticResource TransitionPageStyleTurnstile}" Loaded="PhoneApplicationPage_Loaded">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
+    >
     <Canvas>
 
         <TextBlock Canvas.ZIndex="2" Height="30" HorizontalAlignment="Center" Name="textBlock1" Text="播放界面" VerticalAlignment="Center" Canvas.Left="150" Canvas.Top="10" />
