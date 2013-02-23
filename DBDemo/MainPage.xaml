@@ -21,13 +21,25 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel Orientation="Horizontal" x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <Button Content="Add" Name="btnAdd" Click="btnAdd_Click_1"/>
+            <Button Content="Del" Name="btnDel" Click="btnDel_Click_1"/>
+            <Button Content="Dis" Name="btnDis" Click="btnDis_Click_1"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <ListBox Grid.Row="1" Name="CardListBox">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Name="IDTB" Text="{Binding ID}" />
+                    <TextBlock Name="NameTB" Text="{Binding Name}"/>
+                    <TextBlock Name="EmailTB" Text="{Binding Email}" />
+                    <TextBlock Name="addressTB" Text="{Binding Address}" />
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
  
 </phone:PhoneApplicationPage>
