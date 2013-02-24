@@ -77,7 +77,7 @@ namespace TTPlayer
 			}
 
 			DispatcherTimer dt = new DispatcherTimer();
-			dt.Interval = TimeSpan.FromMilliseconds(33);
+			dt.Interval = TimeSpan.FromMilliseconds(50);
 			dt.Tick += delegate
 			{
 				try
@@ -91,6 +91,8 @@ namespace TTPlayer
 				}
 			};
 			dt.Start();
+
+			//ApplicationLifetimeObjects.Add(new XNAAsyncDispatcher(TimeSpan.FromMilliseconds(50.0)));
 
 		}
 

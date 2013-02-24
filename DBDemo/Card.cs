@@ -22,6 +22,8 @@ namespace DBDemo
 		[Column]
 		public string Address { get; set; }
 
+		[Column]
+		public string Phone { get; set; }
 	}
 
 	public class SourceData : DataContext

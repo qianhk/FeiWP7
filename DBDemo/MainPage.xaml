@@ -36,7 +36,8 @@
                     <TextBlock Name="NameTB" Text="{Binding Name}"/>
                     <TextBlock Name="EmailTB" Text="{Binding Email}" />
                     <TextBlock Name="addressTB" Text="{Binding Address}" />
-                </StackPanel>
+                    <TextBlock Name="addressPhone" Text="{Binding Phone}" />
+                    </StackPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>
         </ListBox>
